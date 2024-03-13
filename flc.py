@@ -10,20 +10,20 @@ from utils.simulation import simulate
 
 Tp = 0.01
 start = 0
-end = 3
+end = 10
 
 """
 Switch to FeedbackLinearizationController as soon as you implement it
 """
-#controller = FeedbackLinearizationController(Tp)
-controller = DummyController(Tp)
+controller = FeedbackLinearizationController(Tp)
+# controller = DummyController(Tp)
 
 """
 Here you have some trajectory generators. You can use them to check your implementations.
 At the end implement Point2point trajectory generator to move your manipulator to some desired state.
 """
 # traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
-traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
+traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([1.0, 0.0]))
 #traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
 
 
@@ -35,12 +35,17 @@ You can add here some plots of the state 'Q' (consists of q and q_dot), controls
 with respect to time 'T' to analyze what is going on in the system
 """
 plt.subplot(221)
-plt.plot(T, Q[:, 0], 'r')
-plt.plot(T, Q_d[:, 0], 'b')
+plt.plot(T, Q[:, 0], 'r', label='Real')
+plt.plot(T, Q_d[:, 0], 'b', label='Expect')
+plt.title('Positions Q0')
+plt.legend()
 plt.subplot(222)
-plt.plot(T, Q[:, 1], 'r')
-plt.plot(T, Q_d[:, 1], 'b')
+plt.plot(T, Q[:, 1], 'r', label='Real')
+plt.plot(T, Q_d[:, 1], 'b', label='Expect')
+plt.title('Positions Q1')
+plt.legend()
 plt.subplot(223)
 plt.plot(T, u[:, 0], 'r')
 plt.plot(T, u[:, 1], 'b')
+plt.title('Control')
 plt.show()
