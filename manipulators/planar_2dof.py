@@ -16,7 +16,7 @@ class PlanarManipulator2DOF:
         self.l2 = 0.4
         self.r2 = 0.04
         self.m2 = 2.4
-        self.m3 = 0.1
+        self.m3 = 0.5
         self.r3 = 0.05
         self.I_1 = 1/12 * self.m1 * (3 * self.r1**2 + self.l1**2)
         self.I_2 = 1/12 * self.m2 * (3 * self.r2**2 + self.l2**2) + self.m3 * (2/5 * self.r3**2 + (self.r3 + self.l2/2)**2)
