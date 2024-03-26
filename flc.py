@@ -3,6 +3,7 @@ import numpy as np
 
 from controllers.dummy_controller import DummyController
 from controllers.feedback_linearization_controller import FeedbackLinearizationController
+from controllers.mma_controller import MMAController
 from controllers.pd_controller import PDDecentralizedController
 from trajectory_generators.constant_torque import ConstantTorque
 from trajectory_generators.sinusonidal import Sinusoidal
@@ -11,13 +12,12 @@ from utils.simulation import simulate
 
 Tp = 0.01
 start = 0
-end = 5
+end = 3
 
 """
 Switch to FeedbackLinearizationController as soon as you implement it
 """
-# controller = FeedbackLinearizationController(Tp)
-controller = PDDecentralizedController(-5, -8)
+controller = FeedbackLinearizationController(Tp, -1, -0.5)
 # controller = DummyController(Tp)
 
 """
@@ -26,7 +26,7 @@ At the end implement Point2point trajectory generator to move your manipulator t
 """
 # traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
 # traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([1.0, 0.0]))
-traj_gen = Poly3(np.array([0., 0.]), np.array([np.pi/4, np.pi/2]), end)
+traj_gen = Poly3(np.array([0., 0.]), np.array([np.pi/2, np.pi/6]), end)
 
 
 Q, Q_d, u, T = simulate("PYBULLET", traj_gen, controller, Tp, end)
