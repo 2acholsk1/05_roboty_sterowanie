@@ -8,7 +8,7 @@ class PlanarManipulator2DOF:
     https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-manipdyn_v1_2.pdf
     https://shodhganga.inflibnet.ac.in/bitstream/10603/26579/9/09_chapter4.pdf
     """
-    def __init__(self, Tp):
+    def __init__(self, Tp, m3=0.5, r3=0.05):
         self.Tp = Tp
         self.l1 = 0.5
         self.r1 = 0.04
@@ -16,8 +16,8 @@ class PlanarManipulator2DOF:
         self.l2 = 0.4
         self.r2 = 0.04
         self.m2 = 2.4
-        self.m3 = 0.5
-        self.r3 = 0.05
+        self.m3 = m3
+        self.r3 = r3
         self.I_1 = 1/12 * self.m1 * (3 * self.r1**2 + self.l1**2)
         self.I_2 = 1/12 * self.m2 * (3 * self.r2**2 + self.l2**2)
         self.I_3 = 2. / 5 * self.m3 * self.r3 ** 2

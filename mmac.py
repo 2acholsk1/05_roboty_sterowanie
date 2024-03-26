@@ -18,7 +18,7 @@ end = 3.
 
 
 # TODO: Switch to MMAC as soon as you implement it
-controller = MMAController(Tp, -1.5, -0.5)
+controller = MMAController(Tp, -2.5, -3)
 # controller = FeedbackLinearizationController(Tp)
 # controller = DummyController(Tp)
 
@@ -26,8 +26,8 @@ controller = MMAController(Tp, -1.5, -0.5)
 Here you have some trajectory generators. You can use them to check your implementations.
 """
 # traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
-traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
-#traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
+# traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
+traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
 
 
 Q, Q_d, u, T = simulate("PYBULLET", traj_gen, controller, Tp, end, multimodel=True)

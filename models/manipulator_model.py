@@ -3,7 +3,7 @@ import math
 
 
 class ManiuplatorModel:
-    def __init__(self, Tp, m3, r3):
+    def __init__(self, Tp, m3=0.5, r3=0.05):
         self.Tp = Tp
         self.l1 = 0.5
         self.r1 = 0.04

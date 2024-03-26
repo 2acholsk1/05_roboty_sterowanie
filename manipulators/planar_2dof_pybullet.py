@@ -2,6 +2,7 @@ import random
 import pybullet
 import pybullet_data
 from pybullet_utils.bullet_client import BulletClient
+import os
 
 
 class PlanarManipulator2DOFPyBullet:
@@ -44,6 +45,7 @@ class PlanarManipulator2DOFPyBullet:
                 Ii = 2. / 5 * m * r ** 2
                 I = (Ii, Ii, Ii)
                 self.change_dynamics(3, m, I)
+                os.system('python3 utils/calculate_inertia.py urdf/planar2dof.urdf')
         print("OBJ_IDX:", self.i)
         self.client.stepSimulation()
 
