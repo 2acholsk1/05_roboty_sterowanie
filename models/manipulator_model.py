@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 
-class ManiuplatorModel:
+class ManipulatorModel:
     def __init__(self, Tp, m3=0.5, r3=0.05):
         self.Tp = Tp
         self.l1 = 0.5

@@ -1,11 +1,11 @@
 import numpy as np
-from models.manipulator_model import ManiuplatorModel
+from models.manipulator_model import ManipulatorModel
 from .controller import Controller
 
 
 class FeedbackLinearizationController(Controller):
     def __init__(self, Tp, kp, kd):
-        self.model = ManiuplatorModel(Tp)
+        self.model = ManipulatorModel(Tp)
         self.kp = kp
         self.kd = kd
 

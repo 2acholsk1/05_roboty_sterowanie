@@ -1,6 +1,6 @@
 import numpy as np
 from .controller import Controller
-from models.manipulator_model import ManiuplatorModel as MM
+from models.manipulator_model import ManipulatorModel as MM
 
 
 class MMAController(Controller):
